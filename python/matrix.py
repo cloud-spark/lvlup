@@ -7,18 +7,28 @@ zero_matrix = [[0 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
 
 
 def printRows(matrix):
-    print("Rows:")
     for row in matrix:
         print(row)
 
 def printColumns(matrix):
-    print("Columns:")
     num_columns = len(matrix[0])
     num_rows = len(matrix)
     for i in range(num_columns):
+        column = []
         for j in range(num_rows):
-            print(matrix[j][i], end=" ")
-        print()
+            column.append(matrix[j][i])
+        print(column)
 
+
+def printColumnsV2(matrix):
+    transposed_matrix = [list(row) for row in zip(*matrix)]
+    printRows(transposed_matrix)
+
+print("Rows:")
 printRows(matrix)
+
+print("Columns:")
 printColumns(matrix)
+
+print("Columns V2:")
+printColumnsV2(matrix)
