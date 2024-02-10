@@ -14,3 +14,4 @@ s = "abcss"
 for item in s:
   print(item)
   print(item)
+  print(item)
