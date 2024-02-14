@@ -16,3 +16,14 @@ function isPalindrome(str) {
 
 console.log(isPalindrome("abc"))
 console.log(isPalindrome("abcba"))
+
+
+str = "gradwohl"
+
+for (let char of str) {
+  console.log(char)
+}
+
+slice = str.slice(0, 4)
+console.log(slice)
+
