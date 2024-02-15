@@ -20,7 +20,7 @@ class LinkedList:
   def removeHead(self):
     if self.head is None:
       return None
-    node = self.head.value
+    node = self.head
     # set next and prev pointers of node to be removed to None, to help with garbage collection
     node.next = node.prev = None
     self.head = self.head.next
@@ -43,7 +43,7 @@ class LinkedList:
   def removeTail(self):
     if self.tail is None:
       return None
-    node = self.tail.value
+    node = self.tail
     # set next and prev pointers of node to be removed to None, to help with garbage collection
     node.next = node.prev = None
     self.tail = self.tail.prev
