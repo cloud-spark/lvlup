@@ -8,13 +8,34 @@ export class Queue {
   }
 
   /**
-   * note, we move the logic how to retrieve the next item to the pop method here.
-   * that way the pop method simply takes the first item from the queue
+   * note, we move the logic for priority to the pop() method.
+   * that way the pop() method always removes front the front for both "modes" of the Queue(fifo or lifo)
+   * 
+   * 
+   * Trade Offs:
+   * FIFO
+   * - push is O(1)
+   * - pop is O(n*log(n)) + O(n)
+   * LIFO
+   * - push is O(n)
+   * - pop is O(n*log(n)) + O(n)
+   * 
+   * If you sort in the push() method instead:
+   * FIFO
+   * - push is O(n*log(n)) + O(1)
+   * - pop is O(n)
+   * ❌LIFO
+   * - push is O(n*log(n)) + O(1)
+   * - pop is O(1)
    */
   public push(item: any, priority = 0) {
     if (this.fifo) {
+      // FIFO queue
+      // add item to the back of the array
       this.queue.push({ item, priority });
     } else {
+      // LIFO stack
+      // add item to the front of the array
       this.queue.unshift({ item, priority });
     }
   }
@@ -29,6 +50,7 @@ export class Queue {
       return b.priority - a.priority; // descending order by priority
     });
 
+    //  remove from the front of the array
     const { item } = this.queue.shift();
 
     return item;
